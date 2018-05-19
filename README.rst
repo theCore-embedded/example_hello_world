@@ -1,5 +1,5 @@
 Hello-World example for theCore embedded C++ framework
-======================================================
+------------------------------------------------------
 
 .. image:: https://travis-ci.org/theCore-embedded/example_hello_world.svg?branch=master
     :target: https://travis-ci.org/theCore-embedded/example_hello_world
@@ -7,12 +7,14 @@ Hello-World example for theCore embedded C++ framework
 This example shows simple console output demo.
 
 Detailed description
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 See `theCore documentation for Hello World example`_ for more information.
 
+.. STARTOF COMMON SECTION MARKER
+
 Supported targets (boards)
---------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +---------------------+--------------------------+-----------------------------------+
 | Target name         | Configuration file       | Description                       |
@@ -25,54 +27,58 @@ Supported targets (boards)
 +---------------------+--------------------------+-----------------------------------+
 
 Wiring
-------
+~~~~~~
 
-#. If you have Tiva TM4C Launchpad - simply connect it to the USB.
+* If you have Tiva TM4C Launchpad - simply connect it to the USB.
 
-#. If you have STM32F4 Discovery board:
+* If you have STM32F4 Discovery board:
 
-   #. Attach any preferable UART-to-USB
-      converter module (`such as this`_) according to following pinout:
+  #. Attach any preferable UART-to-USB
+     converter module (`such as this`_) according to following pinout:
 
-      +-------------------+-----------------+
-      | PD8 (USART3 TX)   | module's RX     |
-      +-------------------+-----------------+
-      | PD9 (USART3 RX)   | module's TX     |
-      +-------------------+-----------------+
-      | GND               | module's GND    |
-      +-------------------+-----------------+
+     +-------------------+-----------------+
+     | PD8 (USART3 TX)   | module's RX     |
+     +-------------------+-----------------+
+     | PD9 (USART3 RX)   | module's TX     |
+     +-------------------+-----------------+
+     | GND               | module's GND    |
+     +-------------------+-----------------+
 
-   #. Connect your STM32 Discovery board to the PC.
+  #. Connect your STM32 Discovery board to the PC.
 
-Quick start
------------
+Preparing
+~~~~~~~~~
 
-#. Install theCore (this may take a while)::
+#. Install and initialize theCore (if not done previously)::
 
-        pip3 install tcore
-        tcore bootstrap
+    pip3 install tcore
+    tcore bootstrap
 
-#. Download this example::
+#. Download the example::
 
-        tcore init --remote https://github.com/theCore-embedded/example_hello_world
+    tcore init --remote https://github.com/theCore-embedded/example_hello_world
 
 #. Step into the project directory::
 
-        cd example_hello_world
+    cd example_hello_world
 
-#. Compile:
+Building
+~~~~~~~~
 
-   * For STM32 Discovery board::
+* For STM32 Discovery board::
 
-        tcore compile --target stm32f4_disc
+    tcore compile --target stm32f4_disc
 
-   * For Tiva TM4C LaunchPad::
+* For Tiva TM4C LaunchPad::
 
-        tcore compile --target tiva_tm4c_launchpad
+    tcore compile --target tiva_tm4c_launchpad
 
-   * For host::
+* For host::
 
-        tcore compile --target host
+    tcore compile --target host
+
+Running
+~~~~~~~
 
 #. If you wish to run the example on the embedded device, launch `minicom`
    with device associated with USB <-> UART converter.
@@ -90,21 +96,24 @@ Quick start
 
    * On TivaC launchpad::
 
-        tcore --sudo flash
+        tcore flash --sudo
 
    * For old STM32F407G-DISC boards, with STLINK/V2::
 
-        tcore --sudo flash
+        tcore flash --sudo
 
    * For new STM32F407G-DISC1 boards, with STLINK/V2.1::
 
-        tcore --sudo flash --debugger-config stlink-v2.1
+        tcore flash --sudo --debugger-config stlink-v2.1
 
    * For host target, execute::
 
         ./build/host/hello_world
 
-#. Observe console output (either in current shell if running on host, or using
+Expected output
+~~~~~~~~~~~~~~~
+
+Observe console output (either in current shell if running on host, or using
    minicom if running on the embedded device)::
 
         Welcome to theCore
@@ -122,5 +131,8 @@ Quick start
         [--------] Waiting for 8 seconds
         [--------] Done waiting 8 seconds
 
-.. _`theCore documentation for Hello World example`: https://forgge.github.io/theCore/examples/hello-world.html
 .. _such as this: http://www.geekfactory.mx/wp-content/uploads/2013/06/converdidor_usb_ttl_rs232_pl_2303hx_01.jpg
+
+.. ENDOF COMMON SECTION MARKER
+
+.. _`theCore documentation for Hello World example`: https://forgge.github.io/theCore/examples/hello-world.html
