@@ -1,3 +1,8 @@
 {
-    "platform":  { "name" : "host", "console": true }
+    "menu-platform": {
+        "config-name": "Host",
+        "menu-host": {
+            "config-console": 1
+        }
+    }
 }
