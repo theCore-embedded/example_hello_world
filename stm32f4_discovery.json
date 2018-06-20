@@ -1,30 +1,43 @@
 {
-    "platform": {
-        "name": "stm32",
-        "device": "STM32F407VG",
-        "console": "USART3",
-        "bypass_console": "USART3",
-        "clock": {
-            "source": "HSE",
-            "speed": 8000000
-        },
-        "uart": [
-            {
-                "id": "USART3",
-                "baud": 115200,
-                "comment": "Bypass and console UART"
-            }
-        ],
-        "pinmux": [
-            {
-                "ids": [
+    "menu-platform": {
+        "config-name": "STM32",
+        "menu-stm32": {
+            "config-device": "STM32F407VG",
+            "menu-clock": {
+                "config-source": "HSE",
+                "config-speed": "8000000"
+            },
+            "config-console": "USART3",
+            "menu-uart": {
+                "table-uart": [
+                    "USART3"
+                ],
+                "menu-USART3": {
+                    "config-baud": 115200
+                }
+            },
+            "menu-pins": {
+                "table-pins": [
                     "PD8",
                     "PD9"
                 ],
-                "mode": "AF",
-                "function": "USART3",
-                "comment": "Console UART, PD8 - TX, PD9 - RX"
+                "menu-PD8": {
+                    "config-mode": "af",
+                    "config-pull": "no",
+                    "config-type": "push-pull",
+                    "config-comment": "Console UART pin",
+                    "config-afsel": "AF7: USART3_TX",
+                    "config-speed": 25
+                },
+                "menu-PD9": {
+                    "config-mode": "af",
+                    "config-pull": "no",
+                    "config-type": "push-pull",
+                    "config-comment": "Console UART pin",
+                    "config-afsel": "AF7: USART3_RX",
+                    "config-speed": 25
+                }
             }
-        ]
+        }
     }
 }

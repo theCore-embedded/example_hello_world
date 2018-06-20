@@ -6,7 +6,8 @@
             "config-console": "UART0",
             "menu-timer": {
                 "config-source": "systick",
-                "config-owner": "user"
+                "config-owner": "user",
+                "config-freq": "100"
             },
             "menu-uart": {
                 "table-uart": [
