@@ -37,6 +37,11 @@
                     "config-afsel": "AF7: USART3_RX",
                     "config-speed": 25
                 }
+            },
+            "menu-timer": {
+                "config-source": "systick",
+                "config-freq": "100",
+                "config-owner": "user"
             }
         }
     }
